@@ -1,0 +1,153 @@
+#include <iostream>
+
+class NHU {
+
+	std::string ad, soyad;
+	int gun, ay, yil;
+	int yas;
+	int maxnabiz;
+	int dinlenik;
+	float antrenman_siddeti;
+	float hedef_nabiz;
+public:
+
+	void setname(std::string);
+	void setsurname(std::string);
+	void setgun(int);
+	void setay(int);
+	void setyil(int);
+	void setdinlenik(int);
+	void setantrenman_siddeti(float);
+	std::string getname();
+	std::string getsurname();
+	int getgun();
+	int getay();
+	int getyil();
+	int getantrenman_siddeti();
+	int getdinlenik();
+	void yazdir();
+
+};
+
+void NHU::setname(std::string ad)
+{
+	this->ad = ad;
+}
+
+void NHU::setsurname(std::string soyad)
+{
+	this->soyad = soyad;
+}
+
+void NHU::setgun(int gun)
+{
+	this->gun = gun;
+}
+
+void NHU::setay(int ay)
+{
+	this->ay = ay;
+}
+
+void NHU::setyil(int yil)
+{
+	this->yil = yil;
+}
+
+void NHU::setdinlenik(int dinlenik)
+{
+	this->dinlenik = dinlenik;
+}
+
+void NHU::setantrenman_siddeti(float antrenman_siddeti)
+{
+	this->antrenman_siddeti = antrenman_siddeti;
+}
+
+std::string NHU::getname()
+{
+	return ad;
+}
+
+std::string NHU::getsurname()
+{
+	return soyad;
+}
+
+int NHU::getgun()
+{
+	return gun;
+}
+
+int NHU::getay()
+{
+	return ay;
+}
+
+int NHU::getyil()
+{
+	return yil;
+}
+
+int NHU::getantrenman_siddeti()
+{
+	return antrenman_siddeti;
+}
+
+int NHU::getdinlenik()
+{
+	return dinlenik;
+}
+
+void NHU::yazdir()
+{
+	system("cls");
+	yas = 2021 - getyil();
+	maxnabiz = 220 - yas;
+	std::cout << "Adiniz:" << getname();
+	std::cout << std::endl;
+	std::cout << "Soyadiniz:" << getsurname();
+	std::cout << std::endl;
+	std::cout << "Yasiniz:" << yas;
+	std::cout << std::endl;
+	std::cout << "Maximum Nabiz Atim Sayisi:" << maxnabiz;
+	std::cout << std::endl;
+	std::cout << "Hedeflenen Nabiz Atim Sayisi:" << (maxnabiz - getdinlenik()) * getantrenman_siddeti() + getdinlenik();
+
+
+}
+
+int main()
+{
+	NHU veli;
+	std::string ad, soyad;
+	int gun, ay, yil;
+	int dinlenik;
+	float antrenman_siddeti;
+	std::cout << "Adinizi Giriniz:";
+	std::cin >> ad;
+	veli.setname(ad);
+	std::cout << std::endl;
+	std::cout << "Soyadinizi Giriniz:";
+	std::cin >> soyad;
+	veli.setsurname(soyad);
+	std::cout << std::endl;
+	std::cout << "Dogum Tarihinizi Gun Ay Yil Formatinda Yaziniz:";
+	std::cin >> gun >> ay >> yil;
+	veli.setgun(gun), veli.setay(ay), veli.setyil(yil);
+	std::cout << std::endl;
+	std::cout << "Dinlenik nabizinizi giriniz:";
+	std::cin >> dinlenik;
+	veli.setdinlenik(dinlenik);
+	std::cout << std::endl;
+	std::cout << "Antrenman Siddetini Giriniz:";
+	std::cin >> antrenman_siddeti;
+	veli.setantrenman_siddeti(antrenman_siddeti);
+	std::cout << std::endl;
+
+	veli.yazdir();
+
+
+	return 0;
+}
+
